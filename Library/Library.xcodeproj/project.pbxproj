@@ -77,19 +77,11 @@
 		25C670942AA46A410016970C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				25C670972AA46B6C0016970C /* Coordinator */,
+				25C670982AA46B7A0016970C /* Coordinator.swift */,
 				25C670952AA46A510016970C /* MainVC.swift */,
 				25C6709E2AA471A70016970C /* DetailVC.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		25C670972AA46B6C0016970C /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				25C670982AA46B7A0016970C /* Coordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		25C6709A2AA4709E0016970C /* Extension */ = {
