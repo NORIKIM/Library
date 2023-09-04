@@ -39,6 +39,7 @@ class MainVM {
     
     func loadNextPage() {
         updateBookData()
+        self.delegate?.finishLoad()
     }
     
     private func reset() {
@@ -52,10 +53,12 @@ class MainVM {
     
     private func updateBookData() {
         if !isFirstLoad {
-            if books.count == totalBook {
+            if books.count == allBooks.count {
                 isLastPage = true
             } else {
-                let range = books.count ... (books.count * itemPerPage)
+                let start = books.count
+                let end = (books.count + itemPerPage) > allBooks.count ? allBooks.count : books.count + itemPerPage
+                let range = start ... end
                 let bookList = Array(allBooks[range])
                 books.append(contentsOf: bookList)
             }
