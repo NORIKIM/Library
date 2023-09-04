@@ -9,28 +9,19 @@ import Foundation
 import Moya
 
 enum Network {
-    case search(keyword: String, page: Int)
-    case cover(id: Int)
+    case search(keyword: String)
 }
 
 extension Network: TargetType {
     var baseURL: URL {
-        switch self {
-        case .search:
-            let url = URL(string: "https://openlibrary.org")
-            return url!
-        case .cover:
-            let url = URL(string: "https://covers.openlibrary.org/b/id")
-            return url!
-        }
+        let url = URL(string: "https://openlibrary.org")
+        return url!
     }
     
     var path: String {
         switch self {
         case .search:
             return "/search.json"
-        case .cover(let id):
-            return "/\(id)-L.jpg"
         }
     }
     
@@ -40,11 +31,9 @@ extension Network: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .search(let keyword, let page):
-            let param = ["q": keyword, "page": String(page)]
+        case .search(let keyword):
+            let param = ["q": keyword]
             return .requestParameters(parameters: param, encoding: URLEncoding.default)
-        case .cover:
-            return .requestPlain
         }
     }
     
