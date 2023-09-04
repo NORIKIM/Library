@@ -27,7 +27,7 @@ class AppCoordinator: NSObject, Coordinator {
         navi.setViewControllers([mainVC], animated: true)
     }
     
-    func moveToDetailVC() {
+    func moveToDetailVC(book: Book) {
         let detailVC = DetailVC.instantiate()
         detailVC.coordinator = self
         navi.pushViewController(detailVC, animated: true)

@@ -106,4 +106,9 @@ extension MainVC {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let book = mainVM.book(at: indexPath)
+        coordinator?.moveToDetailVC(book: book)
+    }
 }

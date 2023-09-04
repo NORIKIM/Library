@@ -10,6 +10,7 @@ import UIKit
 class DetailVC: UIViewController, Storyboarded {
 
     weak var coordinator: AppCoordinator?
+    var book: Book!
     
     override func viewDidLoad() {
         super.viewDidLoad()
