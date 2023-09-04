@@ -109,6 +109,7 @@ extension MainVC {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = mainVM.book(at: indexPath)
+        view.endEditing(true)
         coordinator?.moveToDetailVC(book: book)
     }
 }
