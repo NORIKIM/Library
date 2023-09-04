@@ -32,14 +32,22 @@ class MainCell: UITableViewCell {
     
     func setCell() {
         guard let book = book else { return }
+        
         let coverID = book.coverID
-//        ImageCacheManager.shared.loadImage(id: coverID) { data in
-//            let img = UIImage(data: data)
-////            DispatchQueue.main.async {
-//                self.coverIMG.image = img
-////            }
-//        }
         loadImage(id: coverID)
+        
+        if book.title == nil {
+            titleLB.text = ""
+        } else {
+            titleLB.text = book.title
+        }
+        
+        if book.authorName == nil {
+            authorLB.text = ""
+        } else {
+            authorLB.text = book.authorName![0]
+        }
+        
     }
     
     func loadImage(id: Int?) {
