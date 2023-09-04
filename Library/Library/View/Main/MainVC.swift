@@ -11,10 +11,13 @@ class MainVC: UIViewController, Storyboarded {
     @IBOutlet weak var bookTB: UITableView!
     
     weak var coordinator: AppCoordinator?
+    var books: BookWrapper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
     }
+    
+    
 }

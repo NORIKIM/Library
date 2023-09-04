@@ -101,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				25C670982AA46B7A0016970C /* Coordinator.swift */,
-				25C670952AA46A510016970C /* MainVC.swift */,
-				25C6709E2AA471A70016970C /* DetailVC.swift */,
+				25C670A92AA5F6B70016970C /* Main */,
+				25C670AA2AA5F6C70016970C /* Detail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,6 +123,22 @@
 				25C670A52AA4AC290016970C /* Book.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		25C670A92AA5F6B70016970C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				25C670952AA46A510016970C /* MainVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		25C670AA2AA5F6C70016970C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				25C6709E2AA471A70016970C /* DetailVC.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		D52350B220BE2C63E6A534E9 /* Frameworks */ = {
