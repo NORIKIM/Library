@@ -30,6 +30,7 @@ class MainVC: UIViewController, Storyboarded, UISearchBarDelegate, UITableViewDe
         
         searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 0))
         searchBar.placeholder = " 제목, 저자 검색"
+        searchBar.returnKeyType = .default
         searchBar.delegate = self
         searchBar.becomeFirstResponder()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
@@ -41,6 +42,14 @@ class MainVC: UIViewController, Storyboarded, UISearchBarDelegate, UITableViewDe
         bookTB.delegate = self
         bookTB.dataSource = self
         bookTB.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
+        bookTB.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
+        sender.cancelsTouchesInView = false
     }
     
     // MainVM delegate method
@@ -58,9 +67,12 @@ extension MainVC {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             indicator.startAnimating()
-            searchBar.resignFirstResponder()
             mainVM.load(with: searchText)
         }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
