@@ -76,6 +76,19 @@ extension MainVC {
     }
 }
 
+// MARK: - scroll
+extension MainVC {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.height
+        
+        if offsetY >= (contentHeight - height) {
+            mainVM.loadNextPage()
+        }
+    }
+}
+
 // MARK: - table
 extension MainVC {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,5 +101,9 @@ extension MainVC {
         cell.book = book
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
     }
 }
