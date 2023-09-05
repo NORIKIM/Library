@@ -8,12 +8,13 @@
 import UIKit
 
 class ImageCacheManager: UIImageView {
-    static let shared = ImageCacheManager()
     private let cache = NSCache<NSString, UIImage>()
     private let baseURL = "https://covers.openlibrary.org/b/id"
     private let noCoverImgURL = "https://openlibrary.org/images/icons/avatar_book-lg.png"
     
     func loadImage(id: Int?, completion: ((Error?)-> Void)? = nil) {
+        self.image = nil
+        
         var url = URL(string: noCoverImgURL)
         if id != nil {
             url = URL(string: "\(baseURL)/\(id!)-S.jpg")
@@ -31,6 +32,7 @@ class ImageCacheManager: UIImageView {
         
         if let cachedImage = cache.object(forKey: cachedKey) {
             self.image = cachedImage.resize(newWidth: self.frame.size.width)
+            completion?(nil)
             return
         }
         
@@ -39,22 +41,26 @@ class ImageCacheManager: UIImageView {
             if let img = UIImage(contentsOfFile: path) {
                 cache.setObject(img, forKey: cachedKey)
                 self.image = img.resize(newWidth: self.frame.size.width)
+                completion?(nil)
                 return
             }
         }
         
         // image download
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error != nil, let data = data else {
+            if let error = error {
                 completion?(error)
                 return
             }
+            
+            guard let data = data else { return }
                         
             DispatchQueue.main.async {
                 if let downloadedImage = UIImage(data: data) {
                     self.image = downloadedImage.resize(newWidth: self.frame.size.width)
                     self.cache.setObject(downloadedImage, forKey: cachedKey)
                     FileManager.default.createFile(atPath: path, contents: data, attributes: nil)
+                    completion?(nil)
                 }
             }
         }.resume()

@@ -31,7 +31,7 @@ class MainCell: UITableViewCell {
     }
     
     func setCell() {
-        guard let book = book else { return }
+        guard let book = self.book else { return }
         
         let coverID = book.coverID
         loadImage(id: coverID)
@@ -51,7 +51,11 @@ class MainCell: UITableViewCell {
     }
     
     func loadImage(id: Int?) {
-        coverIMG.loadImage(id: id) { _ in }
+        if let id = id {
+            coverIMG.loadImage(id: id) { _ in
+                
+            }
+        }
     }
     
 }
