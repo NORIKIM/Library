@@ -47,15 +47,10 @@ class MainCell: UITableViewCell {
         } else {
             authorLB.text = book.authorName![0]
         }
-        
     }
     
     func loadImage(id: Int?) {
-//        if let id = id {
-            coverIMG.loadImage(id: id, size: "S") { _ in
-                
-//            }
-        }
+        coverIMG.loadImage(id: id, size: "S") { _ in }
     }
     
 }
