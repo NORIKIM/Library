@@ -21,18 +21,19 @@
                                 <rect key="frame" x="20" y="103" width="353" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="o39-9E-61M">
-                                <rect key="frame" x="186" y="416" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="o39-9E-61M">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
                                 <color key="color" systemColor="tintColor"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NTs-N1-aqA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="o39-9E-61M" firstAttribute="centerY" secondItem="zHg-wY-QRq" secondAttribute="centerY" id="0nu-ck-e1A"/>
                             <constraint firstItem="Khp-13-TPf" firstAttribute="top" secondItem="NTs-N1-aqA" secondAttribute="top" id="QJk-Jf-aoi"/>
                             <constraint firstItem="NTs-N1-aqA" firstAttribute="bottom" secondItem="Khp-13-TPf" secondAttribute="bottom" id="Y9w-fB-3lN"/>
                             <constraint firstItem="NTs-N1-aqA" firstAttribute="trailing" secondItem="Khp-13-TPf" secondAttribute="trailing" constant="20" id="cpO-0d-1M8"/>
+                            <constraint firstItem="o39-9E-61M" firstAttribute="centerX" secondItem="zHg-wY-QRq" secondAttribute="centerX" id="iqx-DV-jzk"/>
                             <constraint firstItem="Khp-13-TPf" firstAttribute="leading" secondItem="NTs-N1-aqA" secondAttribute="leading" constant="20" id="t1O-uo-kJw"/>
                         </constraints>
                     </view>
