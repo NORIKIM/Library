@@ -51,10 +51,10 @@ class MainCell: UITableViewCell {
     }
     
     func loadImage(id: Int?) {
-        if let id = id {
-            coverIMG.loadImage(id: id) { _ in
+//        if let id = id {
+            coverIMG.loadImage(id: id, size: "S") { _ in
                 
-            }
+//            }
         }
     }
     

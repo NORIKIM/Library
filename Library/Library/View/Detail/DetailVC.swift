@@ -25,7 +25,7 @@ class DetailVC: UIViewController, Storyboarded {
         titleLB.text = book.title
         
         let coverID = book.coverID
-        coverIMG.loadImage(id: coverID)
+        coverIMG.loadImage(id: coverID, size: "M") { _ in }
         
         if let author = book.authorName {
             authorLB.text! += " \(author[0])"
@@ -39,7 +39,7 @@ class DetailVC: UIViewController, Storyboarded {
         
         if let year = book.publishYear {
             publishYearLB.text! += String(year)
-        }  
+        }
     }
 
 }

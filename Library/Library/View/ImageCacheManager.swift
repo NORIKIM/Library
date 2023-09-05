@@ -12,12 +12,12 @@ class ImageCacheManager: UIImageView {
     private let baseURL = "https://covers.openlibrary.org/b/id"
     private let noCoverImgURL = "https://openlibrary.org/images/icons/avatar_book-lg.png"
     
-    func loadImage(id: Int?, completion: ((Error?)-> Void)? = nil) {
+    func loadImage(id: Int?, size: String, completion: ((Error?)-> Void)? = nil) {
         self.image = nil
         
         var url = URL(string: noCoverImgURL)
         if id != nil {
-            url = URL(string: "\(baseURL)/\(id!)-S.jpg")
+            url = URL(string: "\(baseURL)/\(id!)-\(size).jpg")
         }
         
         guard let url = url else { return }
