@@ -65,7 +65,12 @@ class MainVM {
         } else {
             let allBookList = bookData?.docs ?? []
             if allBookList.count != 0 {
-                let bookList = Array(allBookList[0 ... itemPerPage])
+                var bookList = [Book]()
+                if allBooks.count < itemPerPage {
+                    bookList = allBookList
+                } else {
+                    bookList = Array(allBookList[0 ... itemPerPage])
+                }
                 allBooks = allBookList
                 books = bookList
             }
