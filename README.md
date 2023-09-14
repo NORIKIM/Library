@@ -1,6 +1,6 @@
 # Open Library 
 
-[Open Library API](srg="https://openlibrary.org/developers/api")의 Search API와 Cover API 사용
+[Open Library API](https://openlibrary.org/developers/api)의 Search API와 Cover API 사용
 
 검색 결과는 20개씩 보여주며 페이지네이션 기능을 포함합니다.
 
@@ -10,11 +10,21 @@
 
 <br>
 
+<img width=300 src="https://github.com/NORIKIM/Library/assets/31604976/e982817a-3e18-4f14-8731-beed1ee59832">
+
+<img width=300 src="https://github.com/NORIKIM/Library/assets/31604976/fc1bb829-2fc1-4013-bc97-e4df509f5720">
+
+<img width=300 src="https://github.com/NORIKIM/Library/assets/31604976/f12a9256-4f59-44d3-a257-1c5299f1723b">
+
+<br>
+
 OS: iOS 14.1이상 부터 지원됩니다
 
 UI프레임워크: UIKit
 
 네트워크: Moya
+
+디자인패턴: MVVM-C
 
 <br>
 
